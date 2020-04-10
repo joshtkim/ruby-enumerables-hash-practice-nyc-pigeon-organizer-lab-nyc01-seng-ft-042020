@@ -3,14 +3,31 @@ def nyc_pigeon_organizer(data)
   data.each do |property, hash|
     hash.each do |attritbute, array|
       array.each do |name|
-        if !new_hash.has_key?(name)
+        if new_hash[name] == nil
           new_hash[name] = {}
-        end
-        if !new_hash[name].has_key?(property)
+          new_hash[name][property] = []
+        else
           new_hash[name][property] = []
         end
-        if !new_hash[name][property].include?(attribute)
-          new_hash[name][property] << attribute.to_s
+      end
+    end
+  end
+  new_hash.each do |name, hash|
+    hash.each do |new_hashvalue, array|
+      data.each do |propery, hash|
+        hash.each do |value, array|
+
+          array.each do |element|
+            if element == name && hashvalue == property
+              new_hash[name][hashvalue] << attribute.to_s
+            end
+          end
+        end
+      end
+    end
+  end
+  hash
+end
         end
       end
     end
